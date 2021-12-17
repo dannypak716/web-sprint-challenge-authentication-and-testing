@@ -25,6 +25,7 @@ function checkBody(req, res, next) {
     }
 }
 
+// check user & authenticate
 async function checkValid(req, res, next) {
     const { username } = req.body;
     try {
@@ -41,9 +42,10 @@ async function checkValid(req, res, next) {
     }
 }
 
-
 module.exports = {
     checkUsername,
     checkBody,
     checkValid
 } 
+
+//created tokenbuilder connected to secrets file to fallback onto if environment variables fail.  login works//
