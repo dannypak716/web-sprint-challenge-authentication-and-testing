@@ -9,7 +9,7 @@ router.post('/register', checkBody, checkUsername, async (req, res, next) => {
   const hash = bcrypt.hashSync(user.password, 8);
   user.password = hash;
   try {
-    const newUser = await Users.add(user)
+    const [newUser] = await Users.add(user)
     res.status(201).json(newUser)
   } catch (err) {
     next(err)
