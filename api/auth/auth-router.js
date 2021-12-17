@@ -4,7 +4,7 @@ const Users = require('./auth-model');
 const { checkUsername, checkBody, checkValid } = require('./auth-middleware')
 const tokenBuilder = require('./token')
 
-router.post('/register', checkUsername, checkBody, async (req, res, next) => {
+router.post('/register', checkBody, checkUsername, async (req, res, next) => {
   const user = req.body;
   const hash = bcrypt.hashSync(user.password, 8);
   user.password = hash;

@@ -47,5 +47,3 @@ module.exports = {
     checkBody,
     checkValid
 } 
-
-//created tokenbuilder connected to secrets file to fallback onto if environment variables fail.  login works//
