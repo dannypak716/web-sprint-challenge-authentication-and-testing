@@ -14,7 +14,6 @@ router.post('/register', checkBody, checkUsername, async (req, res, next) => {
   } catch (err) {
     next(err)
   }
-
   /*
     IMPLEMENT
     You are welcome to build additional middlewares to help with the endpoint's functionality.
