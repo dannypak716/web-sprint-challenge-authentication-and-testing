@@ -1,6 +1,6 @@
 const Users = require('./auth-model')
 
-// unique username 
+// check for unique username 
 async function checkUsername(req, res, next) {
     const { username } = req.body
     try {
@@ -15,8 +15,18 @@ async function checkUsername(req, res, next) {
     }
 }
 
+// check for req.body 
+function checkBody(req, res, next) {
+    const { username, password } = req.body
+    if (!username || username === '' || !password || password === '') {
+        next({status: 404, message: "username and password required"})
+    } else {
+        next()
+    }
+}
 
 
 module.exports = {
     checkUsername,
+    checkBody
 } 
